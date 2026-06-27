@@ -68,13 +68,15 @@ const features = [
 
 export default function StarService() {
   const [current, setCurrent] = useState(0)
-  const [showAfter, setShowAfter] = useState(false)
+  const [showAfter, setShowAfter] = useState(true)
   const [animating, setAnimating] = useState(false)
+  const [phase, setPhase] = useState(0)
 
   const goTo = (idx: number) => {
     if (animating) return
     setAnimating(true)
-    setShowAfter(false)
+    setShowAfter(true)
+    setPhase(0)
     setTimeout(() => {
       setCurrent(idx)
       setAnimating(false)
@@ -84,11 +86,20 @@ export default function StarService() {
   const prev = () => goTo((current - 1 + cases.length) % cases.length)
   const next = () => goTo((current + 1) % cases.length)
 
-  // auto-advance every 5s
+  // Cycle: AFTER 2.5s → BEFORE 2.5s → next case AFTER ...
   useEffect(() => {
-    const t = setTimeout(() => goTo((current + 1) % cases.length), 5000)
+    const t = setTimeout(() => {
+      if (phase === 0) {
+        setShowAfter(false)
+        setPhase(1)
+      } else {
+        setShowAfter(true)
+        setPhase(0)
+        setCurrent(c => (c + 1) % cases.length)
+      }
+    }, 2500)
     return () => clearTimeout(t)
-  }, [current])
+  }, [phase, current])
 
   const c = cases[current]
 
