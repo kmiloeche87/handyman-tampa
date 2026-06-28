@@ -9,12 +9,12 @@ const services = [
   { img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_052428_67734eca-2d73-4921-a35c-7c8c70c879ec.png', name: 'Minor Plumbing', price: 'from $75', desc: 'Faucets, toilets, garbage disposal, and leaking pipes.' },
 ]
 
-export default function Services() {
+export default function Services({ city = "Tampa Bay Area" }: { city?: string }) {
   return (
     <section id="services" className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Tampa Bay Area</p>
+          <p className="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">{city}</p>
           <h2 className="text-3xl md:text-4xl font-black text-gray-900">All Our Services</h2>
           <p className="text-gray-500 mt-3 max-w-lg mx-auto">Transparent pricing from the start. No separate diagnostic visit fee.</p>
         </div>
@@ -37,7 +37,7 @@ export default function Services() {
         <div className="mt-8 bg-orange-50 border border-orange-200 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-bold text-gray-900">Don't see what you need?</p>
-            <p className="text-gray-600 text-sm">We do much more — call us and we'll let you know if we can help.</p>
+            <p className="text-gray-600 text-sm">We do much more in {city} — call us and we'll let you know if we can help.</p>
           </div>
           <a href="tel:7276861410" className="flex-shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors">
             Call Now

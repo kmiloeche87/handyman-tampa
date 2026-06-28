@@ -13,14 +13,14 @@ const platformColor: Record<string, string> = {
   Yelp: 'bg-red-50 text-red-700',
 }
 
-export default function Reviews() {
+export default function Reviews({ city = "Tampa Bay" }: { city?: string }) {
   return (
     <section id="reviews" className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">What They Say</p>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900">Real Customers in Tampa Bay</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900">Real Customers in {city}</h2>
           </div>
           <div className="flex items-center gap-6">
             <div className="text-center">
@@ -50,7 +50,7 @@ export default function Reviews() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-sm">{r.name}</p>
-                    <p className="text-gray-400 text-xs">📍 {r.location}</p>
+                    <p className="text-gray-400 text-xs">📍 {city}, FL</p>
                   </div>
                 </div>
                 <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${platformColor[r.platform]}`}>{r.platform}</span>

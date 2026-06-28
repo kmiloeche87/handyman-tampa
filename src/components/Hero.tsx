@@ -9,7 +9,7 @@ const mosaicPhotos = [
   { url: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_052425_89068956-9672-4d15-af65-7d645982011f.png', label: 'Fence' },
 ]
 
-export default function Hero() {
+export default function Hero({ city = "Tampa Bay" }: { city?: string }) {
   return (
     <section className="bg-orange-500 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -27,7 +27,7 @@ export default function Hero() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
                 We Fix<br />
                 Your Home.<br />
-                <span className="text-orange-200">Tampa Bay.</span>
+                <span className="text-orange-200">{city}.</span>
               </h1>
               <p className="text-orange-100 text-base md:text-lg leading-relaxed mb-6 max-w-md">
                 Drywall · Screen Repair · Painting · Plumbing · Electrical · Fence · Pressure Washing — same day or next day service.
