@@ -14,6 +14,8 @@ import Clearwater from './pages/Clearwater'
 import Dunedin from './pages/Dunedin'
 import TarponSprings from './pages/TarponSprings'
 import SafetyHarbor from './pages/SafetyHarbor'
+import Largo from './pages/Largo'
+import Oldsmar from './pages/Oldsmar'
 
 function Home() {
   return (
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="/dunedin" element={<Dunedin />} />
           <Route path="/tarpon-springs" element={<TarponSprings />} />
           <Route path="/safety-harbor" element={<SafetyHarbor />} />
+          <Route path="/largo" element={<Largo />} />
+          <Route path="/oldsmar" element={<Oldsmar />} />
         </Routes>
         <Footer />
       </div>

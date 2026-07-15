@@ -25,6 +25,8 @@ const cityLinks = [
   { name: 'Dunedin', path: '/dunedin' },
   { name: 'Tarpon Springs', path: '/tarpon-springs' },
   { name: 'Safety Harbor', path: '/safety-harbor' },
+  { name: 'Largo', path: '/largo' },
+  { name: 'Oldsmar', path: '/oldsmar' },
 ]
 
 export default function ServiceArea() {
