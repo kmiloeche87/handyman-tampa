@@ -13,7 +13,7 @@ export default function Header() {
             <span className="text-white font-bold text-lg">T</span>
           </div>
           <div className="leading-tight">
-            <p className="font-bold text-gray-900 text-sm leading-none">Tampa Fix Pro</p>
+            <p className="font-bold text-gray-900 text-sm leading-none">Tampa Bay Handyman Pro</p>
             <p className="text-[11px] text-gray-500">Licensed & Insured</p>
           </div>
         </div>
