@@ -3,7 +3,6 @@ import HowItWorks from '../components/HowItWorks'
 import StarService from '../components/StarService'
 import Services from '../components/Services'
 import BeforeAfter from '../components/BeforeAfter'
-import Reviews from '../components/Reviews'
 import ContactForm from '../components/ContactForm'
 
 interface CityPageProps {
@@ -33,7 +32,6 @@ export default function CityPage({ city, county, neighborhoods, faqs }: CityPage
       <StarService />
       <Services city={city} />
       <BeforeAfter />
-      <Reviews city={city} />
 
       {/* City-specific section: neighborhoods + FAQs */}
       <section className="py-16 bg-gray-50">

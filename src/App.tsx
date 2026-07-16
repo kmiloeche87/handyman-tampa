@@ -5,7 +5,6 @@ import HowItWorks from './components/HowItWorks'
 import StarService from './components/StarService'
 import Services from './components/Services'
 import BeforeAfter from './components/BeforeAfter'
-import Reviews from './components/Reviews'
 import ServiceArea from './components/ServiceArea'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
@@ -25,7 +24,6 @@ function Home() {
       <StarService />
       <Services />
       <BeforeAfter />
-      <Reviews />
       <ServiceArea />
       <ContactForm />
     </>

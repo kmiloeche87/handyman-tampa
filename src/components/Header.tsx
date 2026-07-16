@@ -4,7 +4,7 @@ import integrityLogo from '../assets/integrity-logo.jpeg'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const nav = ['Services', 'How It Works', 'Reviews', 'Service Area', 'Contact']
+  const nav = ['Services', 'How It Works', 'Service Area', 'Contact']
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">

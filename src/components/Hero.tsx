@@ -1,4 +1,4 @@
-import { Star, Shield, CheckCircle } from 'lucide-react'
+import { Shield, CheckCircle } from 'lucide-react'
 
 const mosaicPhotos = [
   { url: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_052402_c50125cf-cab5-4fdd-87ee-12d241df84ad.png', label: 'Drywall' },
@@ -17,12 +17,7 @@ export default function Hero({ city = "Tampa Bay" }: { city?: string }) {
           <div className="flex flex-col justify-between px-8 py-12 md:px-12 md:py-16 relative z-10">
             <div>
               <div className="inline-flex items-center gap-2 bg-orange-600/40 rounded-full px-4 py-1.5 mb-6">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} className="fill-orange-100 text-orange-100" />
-                  ))}
-                </div>
-                <span className="text-orange-100 text-xs font-bold">4.9 · 214 reviews on Google</span>
+                <span className="text-orange-100 text-xs font-bold">Free Estimates · Same-Day Service Available</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
                 We Fix<br />
