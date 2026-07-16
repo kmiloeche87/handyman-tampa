@@ -14,8 +14,19 @@ interface CityPageProps {
 }
 
 export default function CityPage({ city, county, neighborhoods, faqs }: CityPageProps) {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  }
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Exact same components as home */}
       <Hero city={city} />
       <HowItWorks />

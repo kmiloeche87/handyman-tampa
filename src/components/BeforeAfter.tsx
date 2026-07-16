@@ -49,13 +49,13 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         {/* BEFORE */}
         <img
           src={project.before}
-          alt={`Before — ${project.title}`}
+          alt={`${project.title} in ${project.location}, FL — before photo`}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isAfter ? 'opacity-0' : 'opacity-100'}`}
         />
         {/* AFTER */}
         <img
           src={project.after}
-          alt={`After — ${project.title}`}
+          alt={`${project.title} in ${project.location}, FL — after photo`}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isAfter ? 'opacity-100' : 'opacity-0'}`}
         />
 

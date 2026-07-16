@@ -10,7 +10,7 @@ const cases = [
     desc: 'Roof leak stain accumulated from rain. 24-inch brown ring with irregular edges.',
     before: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060012_0107d02d-c6ed-4bdd-9cfb-cac193cf6aa8.png',
     after: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060015_c5f6906b-4f85-4e31-828c-c3819a5d0a8b.png',
-    time: '1 día',
+    time: '1 day',
     result: 'Sealed, skim coated and touch-up painted',
   },
   {
@@ -21,7 +21,7 @@ const cases = [
     desc: '6-inch hole from furniture impact during move. Irregular edges with exposed drywall core.',
     before: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060019_696bdc26-84c9-4259-8183-2a3e757ccd93.png',
     after: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060022_d656fbfa-c286-4348-9bf9-074148b17d45.png',
-    time: '4 horas',
+    time: '4 hours',
     result: 'Patch, compound and color-matched paint',
   },
   {
@@ -32,7 +32,7 @@ const cases = [
     desc: 'Diagonal cracks from window frame due to typical Florida foundation movement.',
     before: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060025_66b388fb-ec18-4da9-8012-9cb4aec42bce.png',
     after: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060130_0761c811-e3a9-41a3-b5f4-03436d4e11cf.png',
-    time: '3 horas',
+    time: '3 hours',
     result: 'Flexible sealant, compound and repaint',
   },
   {
@@ -43,7 +43,7 @@ const cases = [
     desc: 'Popcorn texture ceiling with mold spots from humidity buildup in bathroom without ventilation.',
     before: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060032_2ca01df5-9ad6-4ef7-b373-6922f6e920f9.png',
     after: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060035_291e6778-706d-450d-97b1-790bfac98db2.png',
-    time: '1 día',
+    time: '1 day',
     result: 'Popcorn removal, skim coat and anti-mold paint',
   },
   {
@@ -54,7 +54,7 @@ const cases = [
     desc: 'Over 20 visible nail pops on hallway wall from thermal expansion of the structure.',
     before: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060038_26512e44-3c99-41e6-bd1e-d8c5d4b38c2b.png',
     after: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_060041_73ae5c89-e0a7-464c-8b45-4b11d640c402.png',
-    time: '2 horas',
+    time: '2 hours',
     result: 'Nails re-set, compound and touch-up paint',
   },
 ]
@@ -126,19 +126,19 @@ export default function StarService() {
               {/* BEFORE */}
               <img
                 src={c.before}
-                alt={`Antes — ${c.damage}`}
+                alt={`${c.damage} in ${c.zone}, FL — before repair`}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showAfter ? 'opacity-0' : 'opacity-100'}`}
               />
               {/* AFTER */}
               <img
                 src={c.after}
-                alt={`Después — ${c.damage}`}
+                alt={`${c.damage} in ${c.zone}, FL — after repair`}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showAfter ? 'opacity-100' : 'opacity-0'}`}
               />
 
-              {/* Estado label */}
+              {/* Status label */}
               <div className={`absolute top-4 left-4 text-xs font-black px-3 py-1.5 rounded-full transition-all duration-300 ${showAfter ? 'bg-orange-500 text-white' : 'bg-gray-900/70 text-white backdrop-blur-sm'}`}>
-                {showAfter ? '✓ DESPUÉS' : 'ANTES'}
+                {showAfter ? '✓ AFTER' : 'BEFORE'}
               </div>
 
               {/* Toggle button */}
@@ -146,7 +146,7 @@ export default function StarService() {
                 className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full hover:bg-white transition-colors shadow"
                 onClick={e => { e.stopPropagation(); setShowAfter(v => !v) }}
               >
-                {showAfter ? '← Ver daño' : 'Ver resultado →'}
+                {showAfter ? '← See damage' : 'See result →'}
               </button>
 
               {/* Nav arrows */}
@@ -187,7 +187,7 @@ export default function StarService() {
                   className={`flex-1 rounded-lg overflow-hidden transition-all duration-200 ${i === current ? 'ring-2 ring-orange-500 ring-offset-1' : 'opacity-50 hover:opacity-80'}`}
                   style={{ aspectRatio: '4/3' }}
                 >
-                  <img src={cs.before} alt={cs.damage} className="w-full h-full object-cover" />
+                  <img src={cs.before} alt={`${cs.damage} in ${cs.zone}, FL`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
