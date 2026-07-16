@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Phone, Menu, X } from 'lucide-react'
+import integrityLogo from '../assets/integrity-logo.jpeg'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -14,7 +15,10 @@ export default function Header() {
           </div>
           <div className="leading-tight">
             <p className="font-bold text-gray-900 text-sm leading-none">Tampa Bay Handyman Pro</p>
-            <p className="text-[11px] text-gray-500">Licensed & Insured</p>
+            <div className="flex items-center gap-1 mt-1">
+              <img src={integrityLogo} alt="Integrity Property Solutions" className="h-3 w-3 object-contain rounded-sm" />
+              <p className="text-[10px] text-gray-500 leading-none">by Integrity Property Solutions</p>
+            </div>
           </div>
         </div>
         <nav className="hidden md:flex items-center gap-6">
