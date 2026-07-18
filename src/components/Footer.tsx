@@ -1,3 +1,5 @@
+import { trackCallClick, trackWhatsAppClick } from '../lib/analytics'
+
 const cityLinks = ['Palm Harbor','Dunedin','Clearwater','Tarpon Springs','Safety Harbor','Largo','Oldsmar','St. Petersburg','Tampa','Lutz','Brandon','New Port Richey']
 const serviceLinks = ['Drywall Repair Palm Harbor','Screen Repair Clearwater','Ceiling Fan Installation','Minor Plumbing Palm Harbor','Pressure Washing Clearwater','Interior Painting Dunedin','TV Mounting Palm Harbor','Fence Repair Tarpon Springs']
 const cityPaths: Record<string,string> = {
@@ -53,8 +55,8 @@ export default function Footer() {
           <div>
             <p className="text-white font-bold text-sm mb-4">Contact</p>
             <div className="space-y-3">
-              <a href="tel:7276861410" className="block text-orange-400 font-bold text-sm hover:text-orange-300 transition-colors">📞 (727) 686-1410</a>
-              <a href="https://wa.me/17276861410" className="block text-green-400 font-bold text-sm hover:text-green-300 transition-colors">💬 WhatsApp</a>
+              <a href="tel:7276861410" onClick={() => trackCallClick('footer')} className="block text-orange-400 font-bold text-sm hover:text-orange-300 transition-colors">📞 (727) 686-1410</a>
+              <a href="https://wa.me/17276861410" onClick={() => trackWhatsAppClick('footer')} className="block text-green-400 font-bold text-sm hover:text-green-300 transition-colors">💬 WhatsApp</a>
               <a href="mailto:info@tampabayhandymanpro.com" className="block text-gray-400 text-xs hover:text-white transition-colors">✉️ info@tampabayhandymanpro.com</a>
               <div className="pt-2">
                 <p className="text-gray-500 text-xs">Mon – Fri: 7am – 7pm</p>

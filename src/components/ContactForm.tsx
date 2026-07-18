@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Phone, MessageSquare, Clock } from 'lucide-react'
+import { trackCallClick, trackWhatsAppClick } from '../lib/analytics'
 
 const WHATSAPP_NUMBER = '17276861410'
 
@@ -26,6 +27,7 @@ export default function ContactForm() {
       `🔧 *I need:* ${form.need}\n\n` +
       `Can you help me with a free estimate?`
     )
+    trackWhatsAppClick('contact_form_submit')
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank')
   }
 
@@ -77,7 +79,7 @@ export default function ContactForm() {
           </div>
           <div className="space-y-4 pt-2">
             <p className="text-gray-400 text-sm font-semibold uppercase tracking-widest mb-4">Or reach us directly</p>
-            <a href="tel:7276861410" className="flex items-center gap-4 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-2xl p-5 transition-colors">
+            <a href="tel:7276861410" onClick={() => trackCallClick('contact_form_sidebar')} className="flex items-center gap-4 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-2xl p-5 transition-colors">
               <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Phone size={22} className="text-white" />
               </div>
@@ -86,7 +88,7 @@ export default function ContactForm() {
                 <p className="text-white font-black text-xl">(727) 686-1410</p>
               </div>
             </a>
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick('contact_form_sidebar')}
               className="flex items-center gap-4 bg-gray-800 hover:bg-green-900/30 border border-gray-700 hover:border-green-600/50 rounded-2xl p-5 transition-colors">
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <MessageSquare size={22} className="text-white" />

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Phone, Menu, X } from 'lucide-react'
 import integrityLogo from '../assets/integrity-logo.jpeg'
+import { trackCallClick, trackWhatsAppClick } from '../lib/analytics'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -30,12 +31,12 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="tel:7276861410"
+          <a href="tel:7276861410" onClick={() => trackCallClick('header_desktop')}
             className="hidden sm:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-sm transition-colors">
             <Phone size={15} />
             (727) 686-1410
           </a>
-          <a href="tel:7276861410" className="sm:hidden bg-orange-500 p-2 rounded-lg text-white">
+          <a href="tel:7276861410" onClick={() => trackCallClick('header_mobile')} className="sm:hidden bg-orange-500 p-2 rounded-lg text-white">
             <Phone size={18} />
           </a>
           <button className="md:hidden text-gray-600" onClick={() => setOpen(!open)}>
@@ -51,7 +52,7 @@ export default function Header() {
               {item}
             </a>
           ))}
-          <a href="https://wa.me/17276861410" target="_blank" rel="noreferrer"
+          <a href="https://wa.me/17276861410" target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick('header_mobile_menu')}
             className="mt-3 flex items-center justify-center gap-2 bg-green-500 text-white py-2.5 rounded-lg font-bold text-sm">
             WhatsApp: (727) 686-1410
           </a>

@@ -1,4 +1,5 @@
 import { Shield, CheckCircle } from 'lucide-react'
+import { trackCallClick, trackWhatsAppClick } from '../lib/analytics'
 
 const mosaicPhotos = [
   { url: 'https://d8j0ntlcm91z4.cloudfront.net/user_3DrYCfsHjjiGVhlyTMhB1enKXnz/hf_20260627_052402_c50125cf-cab5-4fdd-87ee-12d241df84ad.png', label: 'Drywall' },
@@ -44,11 +45,11 @@ export default function Hero({ city = "Tampa Bay" }: { city?: string }) {
               <p className="text-orange-200 text-xs font-bold uppercase tracking-widest mb-1">Call Now</p>
               <p className="text-white font-black text-3xl md:text-4xl mb-5 tracking-tight">(727) 686-1410</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="tel:7276861410"
+                <a href="tel:7276861410" onClick={() => trackCallClick('hero')}
                   className="flex items-center justify-center gap-2 bg-white hover:bg-orange-50 text-orange-600 font-black px-6 py-3.5 rounded-xl text-sm transition-colors shadow-lg">
                   📞 Call Now
                 </a>
-                <a href="https://wa.me/17276861410" target="_blank" rel="noreferrer"
+                <a href="https://wa.me/17276861410" target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick('hero')}
                   className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl text-sm transition-colors">
                   💬 WhatsApp
                 </a>

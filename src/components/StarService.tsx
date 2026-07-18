@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { trackCallClick } from '../lib/analytics'
 
 const cases = [
   {
@@ -243,7 +244,7 @@ export default function StarService() {
                 <span className="text-gray-500 text-sm">· materials included</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="tel:7276861410"
+                <a href="tel:7276861410" onClick={() => trackCallClick('star_service_section')}
                   className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-3 rounded-xl text-sm transition-colors flex-1">
                   Get Your Free Estimate
                   <ArrowRight size={15} />
